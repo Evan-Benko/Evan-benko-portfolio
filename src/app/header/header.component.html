@@ -1,0 +1,41 @@
+<header>
+  <nav class="{{mode}}">
+    <h1><a routerLink="/home" routerLinkActive="active">Evan Benko</a></h1>
+    <ul class="{{segmentMode}}">
+      <li class="segmented-button">
+        <a routerLink="/home" routerLinkActive="active" >
+          <input type="radio" [checked]="isActive('/home')">
+          Home
+        </a>
+      </li>
+      <li class="segmented-button">
+        <a routerLink="/projects" routerLinkActive="active" >
+          <input type="radio" [checked]="isActive('/projects')">
+          Projects
+        </a>
+      </li>
+      <li class="segmented-button">
+        <a routerLink="/philosophy" routerLinkActive="active">
+          <input type="radio" [checked]="isActive('/philosophy')">
+          Philosophy
+        </a>
+      </li>
+      <li class="segmented-button">
+        <a routerLink="/resume" routerLinkActive="active">
+          <input type="radio" [checked]="isActive('/resume')">
+          Resume
+        </a>
+      </li>
+      <li class="segmented-button">
+        <a routerLink="/contact" routerLinkActive="active">
+          <input type="radio" [checked]="isActive('/contact')">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <button class="segmented-button" (click)="changeMode()">
+      <i class="{{ modeIcon }}"></i>
+    </button>
+  </nav>
+</header>
+

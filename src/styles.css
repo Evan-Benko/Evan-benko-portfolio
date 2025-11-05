@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@property --col1 {
+  syntax: "<color>";
+  initial-value: #252525;
+  inherits: false;
+}
+@property --col2 {
+  syntax: "<color>";
+  initial-value: #404040;
+  inherits: false;
+}
+@property --col3 {
+  syntax: "<color>";
+  initial-value: #666666;
+  inherits: false;
+}
+@property --col4 {
+  syntax: "<color>";
+  initial-value: #FFFAF0;
+  inherits: false;
+}
+@property --topShadow {
+  syntax: "<color>";
+  initial-value: rgba(170, 170, 170, 0.25);
+  inherits: false;
+}
+@property --bottomShadow {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.5);
+  inherits: false;
+}
+@property --headerHeight {
+  syntax: "<height>";
+  initial-value: 100px;
+  inherits: false;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+    url('app/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style:  normal;
+  font-display: swap;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+app-root {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}

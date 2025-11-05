@@ -1,0 +1,81 @@
+h1{
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15vw;
+  text-align: center;
+  margin: 1em 0;
+  background: -webkit-linear-gradient(#121212, #3b3b3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1.dark{
+  background: -webkit-linear-gradient(#eee, #c5c5c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main.dark{
+  background: -webkit-linear-gradient(var(--col1), var(--col2));
+}
+div.gradient{
+  width: 100vw;
+  height: 30em;
+  position: relative;
+  left: -8px;
+  aspect-ratio: 0.8;
+  perspective: 8px;
+  background: linear-gradient(to top, var(--col4), rgba(255,255,255,0) 99%);
+}
+.gradient.dark{
+  background: linear-gradient(to top, var(--col1), rgba(255,255,255,0) 99%);
+
+}
+main{
+    background-color: var(--col4);
+    width: 100%;
+    display: flex;
+
+}
+section {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    background: linear-gradient(to bottom, white, rgb(236, 236, 236));
+}
+section.dark {
+    background: linear-gradient(to top, var(--col3), var(--col2));
+    color: white;
+}
+h2 { font-size: 2.2rem; margin-bottom: 0.2rem; color: #2c3e50; }
+h3 { color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 0.3rem; margin-top: 1.8rem; }
+h4  { color: #16a085; margin: 1rem 0 0.4rem; }
+h2.dark{
+    color: #4c99e6;
+}
+p, li { font-size: 1rem; }
+a { color: #2980b9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.contact { font-size: 1.1rem; color: #7f8c8d; }
+.download {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--col4);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+.download.dark{
+    background: var(--col2);
+}
+.download a {
+    font-weight: bold;
+    color: #27ae60;
+}
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.3rem; }
+@media (max-width: 600px) {
+    body { padding: 1rem; }
+    h1 { font-size: 1.8rem; }
+}

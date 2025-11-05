@@ -1,0 +1,40 @@
+main{
+  width: 100vw;
+  min-height: 90vh;
+  background-color: var(--col4);
+  display: flex;
+  color: black;
+  position: relative;
+  left: -8px;
+}
+h1{
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15vw;
+  text-align: center;
+  margin: 1em 0;
+  background: -webkit-linear-gradient(#121212, #3b3b3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1.dark{
+  background: -webkit-linear-gradient(#eee, #c5c5c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main.dark{
+  background: -webkit-linear-gradient(var(--col1), var(--col2));
+}
+div.gradient{
+  width: 100vw;
+  height: 30em;
+  position: relative;
+  left: -8px;
+  aspect-ratio: 0.8;
+  perspective: 8px;
+  background: linear-gradient(to top, var(--col4), rgba(255,255,255,0) 99%);
+}
+.gradient.dark{
+  background: linear-gradient(to top, var(--col1), rgba(255,255,255,0) 99%);
+
+}
+

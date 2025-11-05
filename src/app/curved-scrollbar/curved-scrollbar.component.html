@@ -1,0 +1,9 @@
+<div class="scroller">
+    <svg class="scroller__bar bar" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <path #thumbPath class="bar__thumb {{mode}}" fill="none" stroke-linecap="round" />
+        <path #trackPath class="bar__track" fill="none" stroke-linecap="round" />
+    </svg>
+    <div #scrollContainer class="scroll-container">
+        <ng-content></ng-content>
+    </div>
+</div>
