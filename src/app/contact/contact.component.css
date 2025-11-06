@@ -1,17 +1,18 @@
 main{
   width: 100vw;
-  min-height: 90vh;
-  background-color: var(--col4);
+  background: linear-gradient(to top, var(--col4), rgba(255,255,255,0) 99%);
   display: flex;
   color: black;
-  position: relative;
-  left: -8px;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-type: y mandatory; /* or 'y proximity' for looser snapping */
+  overflow-y: scroll;
+  height: 100vh; /* Full viewport height */
 }
 h1{
   font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 15vw;
   text-align: center;
-  margin: 1em 0;
   background: -webkit-linear-gradient(#121212, #3b3b3b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -22,19 +23,44 @@ h1.dark{
   -webkit-text-fill-color: transparent;
 }
 main.dark{
-  background: -webkit-linear-gradient(var(--col1), var(--col2));
-}
-div.gradient{
-  width: 100vw;
-  height: 30em;
-  position: relative;
-  left: -8px;
-  aspect-ratio: 0.8;
-  perspective: 8px;
-  background: linear-gradient(to top, var(--col4), rgba(255,255,255,0) 99%);
-}
-.gradient.dark{
   background: linear-gradient(to top, var(--col1), rgba(255,255,255,0) 99%);
-
+}
+.linkedIn{
+}
+.gitHub{
+}
+.X svg{
+  margin-top: -8em;
+}
+.instagram svg{
+  margin-top: -8em;
+}
+svg{
+  color: black;
+}
+.dark svg{
+  color: white;
 }
 
+a img.light{
+  filter: invert(1);
+}
+
+main > div {
+  scroll-snap-align: center; /* Snap to the start of each section */
+  scroll-snap-stop: always; /* Force stop at each section */
+  min-height: 100vh; /* Each section takes full viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+main > .X, main > .instagram {
+  scroll-snap-align: start; /* Snap to the start of each section */
+  justify-content: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}

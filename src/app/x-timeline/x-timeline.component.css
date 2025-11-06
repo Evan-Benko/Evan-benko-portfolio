@@ -1,0 +1,55 @@
+/* x-latest-post.component.css */
+.x-post-container {
+  max-width: 550px;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 16px;
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.x-post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #0f1419;
+}
+
+.x-post-header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.x-post-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tweet-embed {
+  display: flex;
+  justify-content: center;
+}
+
+.no-tweet {
+  text-align: center;
+  padding: 20px;
+  color: #536471;
+}
+
+.view-profile-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #1d9bf0;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-profile-btn:hover {
+  background: #1a8cd8;
+}

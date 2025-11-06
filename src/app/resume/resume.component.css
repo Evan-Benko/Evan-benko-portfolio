@@ -18,10 +18,6 @@ main.dark{
 div.gradient{
   width: 100vw;
   height: 30em;
-  position: relative;
-  left: -8px;
-  aspect-ratio: 0.8;
-  perspective: 8px;
   background: linear-gradient(to top, var(--col4), rgba(255,255,255,0) 99%);
 }
 .gradient.dark{
