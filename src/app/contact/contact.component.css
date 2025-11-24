@@ -16,6 +16,7 @@ h1{
   background: -webkit-linear-gradient(#121212, #3b3b3b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 1em 0;
 }
 h1.dark{
   background: -webkit-linear-gradient(#eee, #c5c5c5);

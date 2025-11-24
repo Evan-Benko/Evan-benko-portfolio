@@ -56,40 +56,38 @@ h1{
 .dark h1 a, nav h1 a{
   text-decoration: none;
   color: white;
-
 }
 .dark ul, nav ul {
   flex-direction: row;
   display: flex;
-  min-height: 1em;
+  min-height: 0.1em;
   margin: 1em 1em 1em 0;
   flex-grow: 8;
   padding: 0;
   border-radius: 15em;
   box-shadow: var(--bottomShadow) 0 1px 3px 0px, var(--topShadow) 0 -1px 3px 0px;
 }
-.dark ul li, nav ul li{
+.dark ul li, nav ul li {
   cursor: pointer;
   list-style: none;
   flex-grow: 5;
   align-self: center;
-  height: inherit;
 }
 
 .light ul li a{
   color: black;
 }
-.dark ul li a, nav ul li a{
-  font-size: 0.85vw;
+.dark ul li a, nav ul li a {
+  font-size: 0.95vw;
   font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: white;
   text-decoration: none;
-  height: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: center;
   text-align: center;
+  margin: 0 -1em;
 }
 .segmentedLight {
   --padding: 0.25rem;
@@ -150,17 +148,7 @@ h1{
     outline: 2px solid #007acc;
   }
 
-  input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
+
 }
 .segmentedDark {
   --padding: 0.25rem;
@@ -220,16 +208,9 @@ h1{
     outline: 2px solid #007acc;
   }
 
-  input {
+  a input {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 }
 .active {

@@ -4,8 +4,7 @@ main{
   background-color: var(--col4);
   display: flex;
   color: black;
-  position: relative;
-  left: -8px;
+  flex-direction: column;
 }
 h1{
   font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -34,3 +33,133 @@ div.gradient{
 
 }
 
+main h2{
+  font-family: "Black Chancery", serif;
+  font-size: 5vw;
+  width: 57%;
+  text-align: center;
+  margin: 10vh auto 0 auto;
+}
+main.dark h2{
+  color: white;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 2. Shared word styling                                             */
+/* ------------------------------------------------------------------ */
+.word {
+  display: inline-block;          /* needed for transforms & drag */
+  cursor: default;
+  transition: all 0.25s ease;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. NATURE – animated green gradient on hover                       */
+/* ------------------------------------------------------------------ */
+.nature {
+  background: linear-gradient(90deg, #00ff75, #00ff0b, #89ff00, #e8ffe5, #00ff75);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nature:hover {
+  animation: natureHover 2s ease infinite;
+}
+
+@keyframes natureHover {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% {background-position: 200%, 200%}
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. FEEL – rainbow letters, each delayed                             */
+/* ------------------------------------------------------------------ */
+.feel span {
+  display: inline-block;
+  animation: rainbow 0s ease-in-out infinite;
+}
+.feel:hover span { animation-duration: 4s; }
+
+.feel span:nth-child(1) { animation-delay: 0s; }
+.feel span:nth-child(2) { animation-delay: 0.1s; }
+.feel span:nth-child(3) { animation-delay: 0.2s; }
+.feel span:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes rainbow {
+  0%   { color: #f00; text-shadow: -5px -5px #1a0000; }
+  16%  { color: #ffff00; text-shadow: -5px -5px #1A1A00FF;}
+  33%  { color: #00ff00; text-shadow: -5px -5px #001A00FF;}
+  50%  { color: #0ff; text-shadow: -5px -5px #001a1a;}
+  66%  { color: #0000ff; text-shadow: -5px -5px #00001AFF;}
+  83%  { color: #ff00ff; text-shadow: -5px -5px #1A001AFF;}
+  100% { color: #f00; text-shadow: -5px -5px #1a0000;}
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. TOUCH – “violent” bounce away from cursor                       */
+/* ------------------------------------------------------------------ */
+.touch {
+  position: relative;
+  transition: transform 0.15s cubic-bezier(.2,.8,.2,1.6);
+}
+.touch:hover {
+  animation: touchBounce 0.5s ease-out;
+}
+@keyframes touchBounce {
+  0%   { transform: translate(0,0) scale(1); }
+  30%  { transform: translate(-12px,-8px) scale(1.15); }
+  60%  { transform: translate(10px,6px) scale(0.9); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. CHANGE – colour swap on click, pointer on hover                 */
+/* ------------------------------------------------------------------ */
+.change {
+  cursor: pointer;
+  color: inherit;
+  position: relative;
+}
+.change::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-bottom: 2px solid currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+.change:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.change.clicked { color: #e91e63; }   /* any colour you like */
+
+/* ------------------------------------------------------------------ */
+/* 7. INTERACT – draggable anywhere on the page                       */
+/* ------------------------------------------------------------------ */
+.interact {
+  cursor: move;
+  user-select: none;
+  position: relative;      /* for the drag-clone */
+}
+
+/* The actual drag implementation – pure CSS (works in Chrome/Edge/Firefox) */
+.interact:active {
+  cursor: grabbing;
+}
+
+/* --------------------------------------------------------------- */
+/* 8. UNIQUE – flip upside-down on hover                           */
+/* --------------------------------------------------------------- */
+.unique {
+  transition: transform 0.4s ease;
+}
+.unique:hover {
+  transform: rotateX(180deg);
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Small helper – split FEEL into letters (done in the component) */
+/* ------------------------------------------------------------------ */

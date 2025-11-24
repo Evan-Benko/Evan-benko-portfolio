@@ -4,7 +4,7 @@ main{
     display: flex;
 }
 main.dark{
-    background: -webkit-linear-gradient(var(--col1), var(--col2), var(--col1));
+    background: var(--col1);
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
 }
 h1{
-  font-size: 20vw;
+  font-size: 15vw;
   margin: 1em 0;
 }
 h1.dark, h2.dark, h3.dark, h4.dark, h5.dark, h6.dark, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
@@ -35,7 +35,8 @@ div.gradient{
 
 main h2{
     width: 100%;
-    margin: 10em 0 0 0;
+    padding: 5em  0;
+    font-size: 3rem;
 }
 .app-photo-gallery{
     width: 100%;
@@ -50,13 +51,14 @@ div.gradient-reverse{
 
 }
 section.dark{
-    background: -webkit-linear-gradient(var(--col1), var(--col2), var(--col1));
+    background: var(--col1);
 }
 section{
+    padding: 35vh 0;
     display: flex;
     flex-direction: column;
     min-height: 30vh;
-    background: -webkit-linear-gradient(var(--col4), white, var(--col4));
+    background: var(--col4);
 }
 section h3{
     display: flex;
@@ -70,7 +72,12 @@ section h3{
     align-items: center;
     justify-content: space-evenly;
     font-family: 'Arial', sans-serif;
-    margin:-30vh 0 15vh 0;
+    padding: 0vh 0 5vh 0;
+    background: var(--col4);
+
+}
+.badge-container.dark{
+  background: var(--col1);
 }
 
 .badge {
@@ -148,3 +155,15 @@ section h3{
     margin: 4px 0 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
+.scroll-icon svg{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-bottom: 8px;
+    fill: #ffe787;
+}
+
+.scroll-icon .dark{
+  fill: #e6cd45;
+}
+

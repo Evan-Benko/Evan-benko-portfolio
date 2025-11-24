@@ -7,6 +7,7 @@ import {ModeService} from '../Service/mode.service';
   imports: [],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
+  standalone: true
 })
 export class ProjectsComponent implements OnInit {
   mode: string = "light";

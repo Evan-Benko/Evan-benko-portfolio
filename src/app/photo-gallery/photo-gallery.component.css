@@ -3,4 +3,8 @@
     padding: 0;
     margin: 0;
     text-align: center;
+  background: var(--col4);
+}
+.gallery-container.dark {
+  background: var(--col1);
 }

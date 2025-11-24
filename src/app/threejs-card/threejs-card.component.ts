@@ -85,28 +85,7 @@ export class ThreejsCardComponent implements AfterViewInit, OnDestroy {
         this.scene.add(directionalLight2);
     }
 
-    private createRoundedRectTexture(width: number, height: number, radius: number, color: string): THREE.CanvasTexture {
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d')!;
 
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.moveTo(radius, 0);
-        ctx.lineTo(width - radius, 0);
-        ctx.quadraticCurveTo(width, 0, width, radius);
-        ctx.lineTo(width, height - radius);
-        ctx.quadraticCurveTo(width, height, width - radius, height);
-        ctx.lineTo(radius, height);
-        ctx.quadraticCurveTo(0, height, 0, height - radius);
-        ctx.lineTo(0, radius);
-        ctx.quadraticCurveTo(0, 0, radius, 0);
-        ctx.closePath();
-        ctx.fill();
-
-        return new THREE.CanvasTexture(canvas);
-    }
 
     private createCardTexture(imageSrc: string, title: string): Promise<THREE.CanvasTexture> {
         return new Promise((resolve, reject) => {
@@ -128,6 +107,7 @@ export class ThreejsCardComponent implements AfterViewInit, OnDestroy {
                 ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
                 // Draw glass-like border background with rounded corners
+              if (this.mode === 'light') {
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
                 this.drawRoundedRect(ctx, 0, 0, canvasWidth, canvasHeight, borderRadius);
                 ctx.fill();
@@ -137,7 +117,17 @@ export class ThreejsCardComponent implements AfterViewInit, OnDestroy {
                 ctx.lineWidth = 4;
                 this.drawRoundedRect(ctx, 2, 2, canvasWidth - 4, canvasHeight - 4, borderRadius);
                 ctx.stroke();
+              }else{
+                ctx.fillStyle = 'rgba(25, 25, 25, 0.15)';
+                this.drawRoundedRect(ctx, 0, 0, canvasWidth, canvasHeight, borderRadius);
+                ctx.fill();
 
+                // Draw outer glow/border
+                ctx.strokeStyle = 'rgba(25, 25, 25, 0.3)';
+                ctx.lineWidth = 4;
+                this.drawRoundedRect(ctx, 2, 2, canvasWidth - 4, canvasHeight - 4, borderRadius);
+                ctx.stroke();
+              }
                 // Calculate image dimensions with padding
                 const imageWidth = canvasWidth - (padding * 2);
                 const imageHeight = canvasHeight - (padding * 2);

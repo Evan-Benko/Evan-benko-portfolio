@@ -4,19 +4,31 @@ import {ModeService} from '../Service/mode.service';
 
 @Component({
   selector: 'app-philosophy',
-  imports: [],
   templateUrl: './philosophy.component.html',
   styleUrl: './philosophy.component.css',
+  standalone: true
 })
 export class PhilosophyComponent implements OnInit {
-  mode: string = "light";
+  mode: string = 'light';
   private darkModeSubscription!: Subscription;
 
-  constructor(private modeService: ModeService) { }
+  /** click-state for the "change" word */
+  changeClicked = false;
 
-  ngOnInit() {
+  constructor(private modeService: ModeService) {}
+
+  ngOnInit(): void {
     this.darkModeSubscription = this.modeService.darkMode.subscribe(isDark => {
-      this.mode = !isDark? 'light' : 'dark';
+      this.mode = isDark ? 'dark' : 'light';
     });
+  }
+
+  ngOnDestroy(): void {
+    this.darkModeSubscription?.unsubscribe();
+  }
+
+  /** toggle the clicked colour */
+  onChangeClick() {
+    this.changeClicked = !this.changeClicked;
   }
 }
