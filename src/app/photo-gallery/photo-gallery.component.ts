@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ThreejsCardComponent} from "../threejs-card/threejs-card.component";
-
+import { ThreejsCardComponent } from '../threejs-card/threejs-card.component';
 @Component({
     selector: 'app-photo-gallery',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, ThreejsCardComponent],
     templateUrl: 'photo-gallery.component.html',
     styleUrl: 'photo-gallery.component.css',
 

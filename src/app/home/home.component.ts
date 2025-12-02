@@ -7,7 +7,6 @@ import {PhotoGalleryComponent} from "../photo-gallery/photo-gallery.component";
   selector: 'app-home',
     imports: [
         PhotoGalleryComponent,
-        PhotoGalleryComponent,
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

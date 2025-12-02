@@ -3,12 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import {NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-linkedin-card',
-  templateUrl: './linkedin-card.component.html',
-  imports: [
-    NgIf
-  ],
-  styleUrls: ['./linkedin-card.component.css']
+    selector: 'app-linkedin-card',
+    templateUrl: './linkedin-card.component.html',
+    imports: [
+        NgIf
+    ],
+    standalone: true,
+    styleUrls: ['./linkedin-card.component.css']
 })
 export class LinkedInCardComponent implements OnInit {
   @Input() profileUrl: string = '';

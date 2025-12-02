@@ -7,6 +7,7 @@ import {ModeService} from '../Service/mode.service';
   imports: [],
   templateUrl: './page-not-found.component.html',
   styleUrl: './page-not-found.component.css',
+  standalone: true
 })
 export class PageNotFoundComponent implements OnInit {
   mode: string = "light";

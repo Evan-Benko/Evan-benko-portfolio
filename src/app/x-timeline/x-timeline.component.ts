@@ -8,12 +8,13 @@ declare global {
 }
 
 @Component({
-  selector: 'app-x-timeline',
-  templateUrl: './x-timeline.component.html',
-  imports: [
-    NgIf
-  ],
-  styleUrls: ['./x-timeline.component.css']
+    selector: 'app-x-timeline',
+    templateUrl: './x-timeline.component.html',
+    imports: [
+        NgIf
+    ],
+    standalone: true,
+    styleUrls: ['./x-timeline.component.css']
 })
 export class XTimelineComponent implements OnInit, AfterViewInit {
   @Input() username: string = 'thee_evy';

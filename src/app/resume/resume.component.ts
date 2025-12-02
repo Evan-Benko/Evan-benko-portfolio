@@ -7,6 +7,7 @@ import {ModeService} from '../Service/mode.service';
   imports: [],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.css',
+  standalone: true
 })
 export class ResumeComponent implements OnInit {
   mode: string = "light";
