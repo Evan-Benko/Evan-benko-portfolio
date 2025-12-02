@@ -5,7 +5,7 @@ import {ThreejsCardComponent} from "../threejs-card/threejs-card.component";
 @Component({
     selector: 'app-photo-gallery',
     standalone: true,
-    imports: [CommonModule, ThreejsCardComponent],
+    imports: [CommonModule],
     templateUrl: 'photo-gallery.component.html',
     styleUrl: 'photo-gallery.component.css',
 

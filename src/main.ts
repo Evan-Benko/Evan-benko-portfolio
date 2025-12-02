@@ -2,27 +2,38 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, Routes, withHashLocation } from '@angular/router';
 
 import { HomeComponent } from './app/home/home.component';
-import { ProjectsComponent } from './app/projects/projects.component';
-import { PhilosophyComponent } from './app/philosophy/philosophy.component';
-import { ResumeComponent } from './app/resume/resume.component';
-import { ContactComponent } from './app/contact/contact.component';
-import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 import { AppComponent } from './app/app';
+import {provideHttpClient} from '@angular/common/http';
+import {importProvidersFrom, isDevMode} from '@angular/core';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { provideServiceWorker } from '@angular/service-worker';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'projects', component: ProjectsComponent },
-    { path: 'philosophy', component: PhilosophyComponent },
-    { path: 'resume', component: ResumeComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: '**', component: PageNotFoundComponent }
+    {path: 'projects',loadComponent:()=>
+      import("./app/projects/projects.component").then(m=>m.ProjectsComponent)},
+    { path: 'philosophy',loadComponent:()=>
+        import("./app/philosophy/philosophy.component").then(m=>m.PhilosophyComponent)},
+    { path: 'resume',loadComponent:()=>
+        import("./app/resume/resume.component").then(m=>m.ResumeComponent)},
+    { path: 'contact',loadComponent:()=>
+        import("./app/contact/contact.component").then(m=>m.ContactComponent)},
+    { path: '**',loadComponent:()=>
+        import("./app/page-not-found/page-not-found.component").then(m=>m.PageNotFoundComponent)},
 ];
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        provideRouter(routes, withHashLocation()), // This enables hash routing
-        // Optional: Explicitly provide HashLocationStrategy (not required if using withHashLocation)
-        // { provide: LocationStrategy, useClass: HashLocationStrategy }
-    ]
-}).catch(err => console.error(err));
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay:10})), provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }),
+  ]
+})
+  .then(r =>console.log( "Bootstrap Loaded Successfully"));
