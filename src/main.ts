@@ -1,11 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, Routes, withHashLocation } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 
 import { HomeComponent } from './app/home/home.component';
 import { AppComponent } from './app/app';
 import {provideHttpClient} from '@angular/common/http';
 import {importProvidersFrom, isDevMode} from '@angular/core';
-import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { provideServiceWorker } from '@angular/service-worker';
 
 const routes: Routes = [
