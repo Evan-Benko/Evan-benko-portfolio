@@ -1,6 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, Routes } from '@angular/router';
-
 import { HomeComponent } from './app/home/home.component';
 import { AppComponent } from './app/app';
 import {provideHttpClient} from '@angular/common/http';

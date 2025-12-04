@@ -29,10 +29,7 @@ export class ThreejsCardComponent implements AfterViewInit, OnDestroy {
     private hoveredCard: THREE.Mesh | null = null;
 
     ngAfterViewInit() {
-        this.initThree();
-        this.createCards();
-        this.animate();
-        this.addEventListeners();
+        this.initWhenReady();
     }
 
     ngOnDestroy() {
@@ -322,5 +319,54 @@ export class ThreejsCardComponent implements AfterViewInit, OnDestroy {
         }
 
         this.renderer.render(this.scene, this.camera);
+    }
+    private initWhenReady(attempts = 0): void {
+      const width = this.container.nativeElement.offsetWidth;
+      const height = this.container.nativeElement.offsetHeight;
+
+      if (width > 50 && height > 50) {
+        // Good size — safe to initialize
+        this.initThree();
+        this.createCards();
+        this.animate();
+        this.addEventListeners();
+      } else if (attempts < 20) {
+        // Still zero — retry after a few ms (up to ~1 second)
+        setTimeout(() => this.initWhenReady(attempts + 1), 50);
+      } else {
+        // Last resort: use window dimensions or fallback
+        console.warn('Three.js card container still 0x0 after retries, forcing init');
+        this.initThreeWithFallback();
+        this.createCards();
+        this.animate();
+        this.addEventListeners();
+      }
+    }
+
+    private initThreeWithFallback() {
+      // Fallback if container is still collapsed
+      const width = window.innerWidth * 0.9;
+      const height = width * 0.6; // rough aspect
+
+      this.scene = new THREE.Scene();
+      this.scene.background = null;
+
+      this.camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 1000);
+      this.camera.position.set(0, 0, 10);
+
+      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      this.renderer.setSize(width, height);
+      this.renderer.setPixelRatio(window.devicePixelRatio);
+      this.container.nativeElement.appendChild(this.renderer.domElement);
+
+      // Same lights as before...
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      this.scene.add(ambientLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight.position.set(5, 5, 5);
+      this.scene.add(directionalLight);
+      const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+      directionalLight2.position.set(-5, 3, 5);
+      this.scene.add(directionalLight2);
     }
 }
